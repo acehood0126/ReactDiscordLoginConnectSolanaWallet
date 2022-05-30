@@ -1,11 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const DiscordOauth2 = require("discord-oauth2");
-const { json } = require("express/lib/response");
+const discorduser = require('../controllers/discorduser.controller');
 
-router.post("/addnewuser", function (req, res, next) {
-  const userdata = req.body;
-  res.send(userdata);
-});
+router.post("/addnewuser", discorduser.create);
 
 module.exports = router;
